@@ -28,17 +28,16 @@
 }
 
 .brand-mark {
-  width: 2.6rem;
-  height: 2.6rem;
-  display: grid;
-  place-items: center;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #0d4fd1, #2aa2ff);
-  box-shadow: 0 10px 22px rgba(21, 83, 192, 0.24);
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
 }
 
 .brand-text {
-  letter-spacing: -0.02em;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  letter-spacing: -0.5px;
 }
 
 .nav {

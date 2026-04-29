@@ -1,13 +1,12 @@
 import './App.css'
+import corujaLogo from './assets/logo.png'
 
 function App() {
   return (
     <div className="page">
       <header className="topbar">
         <div className="brand" aria-label="Vocacionar">
-          <span className="brand-mark" aria-hidden="true">
-            
-          </span>
+          <img src={corujaLogo} alt="Logo" className="brand-mark" />
           <span className="brand-text">Vocacionar</span>
         </div>
 
@@ -23,16 +22,15 @@ function App() {
       </header>
 
       <main className="hero">
-        <p className="eyebrow">Feito para o ensino médio</p>
+        
         <h1>
-          Descubra sua <span>carreira ideal</span>
-          <br />
-          sem pressão.
+            Encontre um curso que combina <span>com você.</span>
+            <br />
+            
         </h1>
 
         <p className="hero-copy">
-          Responda perguntas simples, conheça o curso dos seus sonhos e compare suas opções. A gente
-          usa inteligência artificial para te dar caminhos personalizados.
+          Faça um teste rápido, explore cursos e compare opções para entender melhor seus interesses e possibilidades.
         </p>
 
         <div className="hero-actions">

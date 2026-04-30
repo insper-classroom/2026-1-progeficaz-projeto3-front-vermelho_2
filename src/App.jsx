@@ -121,31 +121,6 @@ function App() {
           <a id="comparar" className="hero-link" href="#comparar">
             ou comparar dois cursos lado a lado <span aria-hidden="true">→</span>
           </a>
-
-          <section className="sample-card" aria-label="Previa do site">
-            <div className="sample-card-top">
-              <div>
-                <p className="sample-label">Exemplo visual</p>
-                <h2>Interface limpa, acolhedora e direta</h2>
-              </div>
-              <span className="sample-badge">Base inicial</span>
-            </div>
-
-            <div className="sample-grid">
-              <article>
-                <strong>Teste</strong>
-                <p>Perguntas curtas para entender seu perfil.</p>
-              </article>
-              <article>
-                <strong>Cursos</strong>
-                <p>Lista com busca e detalhes.</p>
-              </article>
-              <article>
-                <strong>Comparar</strong>
-                <p>Dois cursos lado a lado.</p>
-              </article>
-            </div>
-          </section>
         </main>
       ) : (
         <main className="course-page">

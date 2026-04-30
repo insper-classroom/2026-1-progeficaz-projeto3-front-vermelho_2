@@ -204,6 +204,10 @@
   box-shadow: 0 22px 54px rgba(14, 52, 119, 0.1);
 }
 
+.course-hero {
+  margin-top: 0;
+}
+
 .course-layout {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

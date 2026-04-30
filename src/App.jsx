@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import './App.css'
 import corujaLogo from './assets/logo.png'
 import Quiz from './components/Quiz'
+import Compare from './components/Compare'
 
 const demoCourse = {
   Curso: 'Bacharelado em Dinâmicas de Relacionamento Interpessoal (Como ficar com alguém)',
@@ -55,6 +56,11 @@ function App() {
     setShowSearch(false)
   }
 
+  const openCompare = () => {
+    setCurrentView('compare')
+    setShowSearch(false)
+  }
+
   return (
     <div className="page">
       <header className="topbar">
@@ -85,7 +91,15 @@ function App() {
             Explorar cursos
           </a>
 
-          <a href="#comparar">Comparar</a>
+          <a
+            href="#comparar"
+            onClick={(event) => {
+              event.preventDefault()
+              openCompare()
+            }}
+          >
+            Comparar
+          </a>
         </nav>
       </header>
 
@@ -115,49 +129,15 @@ function App() {
             </button>
           </div>
 
-          <div className="compare-block">
-            <button
-              type="button"
-              id="comparar"
-              className="button button-secondary"
-              onClick={() => {}}
-            >
-              ou comparar dois cursos lado a lado <span aria-hidden="true">→</span>
-            </button>
-
-            <div className="compare-bottom">
-              <button
-                type="button"
-                className="search-button-center"
-                aria-label="Pesquisar curso"
-                onClick={() => setShowSearch((s) => !s)}
-              >
-                <span aria-hidden="true">⌕</span>
-              </button>
-
-              {showSearch && (
-                <div className="hero-search">
-                  <input
-                    autoFocus
-                    type="text"
-                    className="search-input"
-                    placeholder="Digite um curso"
-                    value={query}
-                    onChange={(event) => setQuery(event.target.value)}
-                    onKeyDown={(event) => {
-                      if (event.key === 'Enter') {
-                        openCoursePage()
-                      }
-                    }}
-                  />
-                </div>
-              )}
-            </div>
-          </div>
+          <button type="button" id="comparar" className="hero-link" onClick={openCompare}>
+            ou comparar dois cursos lado a lado <span aria-hidden="true">→</span>
+          </button>
         </main>
       )}
 
       {currentView === 'quiz' && <Quiz onBack={goHome} />}
+
+      {currentView === 'compare' && <Compare />}
 
       {currentView === 'course' && (
         <main className="course-page">
@@ -169,6 +149,7 @@ function App() {
           <section className="course-layout">
             <article className="card-panel">
               <h2>Faculdades</h2>
+
               <div className="faculty-list">
                 {demoCourse.Faculdades.map((faculty) => (
                   <div key={`${faculty.Faculdade}-${faculty.Local}`} className="faculty-card">
@@ -183,6 +164,7 @@ function App() {
 
             <article className="card-panel">
               <h2>Carreiras</h2>
+
               <ul className="detail-list">
                 {demoCourse.Carreiras.map((career) => (
                   <li key={career}>{career}</li>
@@ -192,6 +174,7 @@ function App() {
 
             <article className="card-panel">
               <h2>Profissionalizações</h2>
+
               <ul className="detail-list">
                 {demoCourse.Profissionalizacoes.map((item) => (
                   <li key={item}>{item}</li>

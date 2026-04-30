@@ -575,3 +575,70 @@
     width: 100%;
   }
 }
+
+.compare-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 7rem 1rem 2rem;
+  text-align: center;
+}
+
+.compare-selectors {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.course-selector {
+  flex: 1;
+  background: white;
+  border-radius: 20px;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+}
+
+.course-item {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  border-radius: 12px;
+  border: 1px solid #dbeafe;
+  background: #f8fbff;
+  cursor: pointer;
+}
+
+.course-item:hover {
+  background: #eaf2ff;
+}
+
+.compare-empty {
+  margin-top: 3rem;
+  padding: 2rem;
+  border: 2px dashed #dbeafe;
+  border-radius: 20px;
+  color: #5d6f83;
+}
+
+.compare-table {
+  margin-top: 2rem;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.compare-header,
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1rem;
+}
+
+.compare-header {
+  font-weight: bold;
+  background: #f0f6ff;
+}
+
+.compare-row:nth-child(even) {
+  background: #f9fbff;
+}

@@ -105,8 +105,8 @@ function App() {
           </h1>
 
           <p className="hero-copy">
-            Faça um teste rápido, explore cursos e compare opções para entender melhor seus
-            interesses e possibilidades.
+            Descubra cursos e carreiras ideais com testes vocacionais, comparação entre opções e
+            informações claras para ajudar você a decidir com mais confiança.
           </p>
 
           <div className="hero-actions">

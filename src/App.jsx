@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import './App.css'
 import corujaLogo from './assets/logo.png'
+import Quiz from './components/Quiz'
 
 const demoCourse = {
   Curso: 'Bacharelado em Dinâmicas de Relacionamento Interpessoal (Como ficar com alguém)',
@@ -49,6 +50,11 @@ function App() {
     setShowSearch(false)
   }
 
+  const openQuiz = () => {
+    setCurrentView('quiz')
+    setShowSearch(false)
+  }
+
   return (
     <div className="page">
       <header className="topbar">
@@ -58,8 +64,27 @@ function App() {
         </button>
 
         <nav className="nav" aria-label="Navegacao principal">
-          <a href="#teste">Teste vocacional</a>
-          <a href="#cursos">Explorar cursos</a>
+          <a
+            href="#teste"
+            onClick={(event) => {
+              event.preventDefault()
+              openQuiz()
+            }}
+          >
+            Teste vocacional
+          </a>
+
+          <a
+            href="#cursos"
+            onClick={(event) => {
+              event.preventDefault()
+              goHome()
+              setShowSearch(true)
+            }}
+          >
+            Explorar cursos
+          </a>
+
           <a href="#comparar">Comparar</a>
         </nav>
 
@@ -98,7 +123,7 @@ function App() {
         </div>
       </header>
 
-      {currentView === 'home' ? (
+      {currentView === 'home' && (
         <main className="hero">
           <h1>
             Encontre um curso que combina <span>com você.</span>
@@ -110,19 +135,29 @@ function App() {
           </p>
 
           <div className="hero-actions">
-            <a id="teste" className="button button-primary" href="#teste">
+            <button type="button" id="teste" className="button button-primary" onClick={openQuiz}>
               Fazer teste vocacional <span aria-hidden="true">→</span>
-            </a>
-            <a id="cursos" className="button button-secondary" href="#cursos">
+            </button>
+
+            <button
+              type="button"
+              id="cursos"
+              className="button button-secondary"
+              onClick={() => setShowSearch(true)}
+            >
               Explorar cursos
-            </a>
+            </button>
           </div>
 
           <a id="comparar" className="hero-link" href="#comparar">
             ou comparar dois cursos lado a lado <span aria-hidden="true">→</span>
           </a>
         </main>
-      ) : (
+      )}
+
+      {currentView === 'quiz' && <Quiz onBack={goHome} />}
+
+      {currentView === 'course' && (
         <main className="course-page">
           <section className="course-hero card-panel">
             <h1>{demoCourse.Curso}</h1>

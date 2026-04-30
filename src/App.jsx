@@ -125,7 +125,6 @@ function App() {
       ) : (
         <main className="course-page">
           <section className="course-hero card-panel">
-            <p className="course-kicker">Página de curso específico</p>
             <h1>{demoCourse.Curso}</h1>
             <p>{demoCourse.Descricao}</p>
           </section>

@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import './App.css'
 import corujaLogo from './assets/logo.png'
 import Quiz from './components/Quiz'
+import Compare from './components/Compare'
 
 const demoCourse = {
   Curso: 'Bacharelado em Dinâmicas de Relacionamento Interpessoal (Como ficar com alguém)',
@@ -55,6 +56,11 @@ function App() {
     setShowSearch(false)
   }
 
+  const openCompare = () => {
+    setCurrentView('compare')
+    setShowSearch(false)
+  }
+
   return (
     <div className="page">
       <header className="topbar">
@@ -85,7 +91,15 @@ function App() {
             Explorar cursos
           </a>
 
-          <a href="#comparar">Comparar</a>
+          <a
+            href="#comparar"
+            onClick={(event) => {
+              event.preventDefault()
+              openCompare()
+            }}
+          >
+            Comparar
+          </a>
         </nav>
 
         <div className="search-shell">
@@ -149,13 +163,15 @@ function App() {
             </button>
           </div>
 
-          <a id="comparar" className="hero-link" href="#comparar">
+          <button type="button" id="comparar" className="hero-link" onClick={openCompare}>
             ou comparar dois cursos lado a lado <span aria-hidden="true">→</span>
-          </a>
+          </button>
         </main>
       )}
 
       {currentView === 'quiz' && <Quiz onBack={goHome} />}
+
+      {currentView === 'compare' && <Compare />}
 
       {currentView === 'course' && (
         <main className="course-page">
@@ -167,6 +183,7 @@ function App() {
           <section className="course-layout">
             <article className="card-panel">
               <h2>Faculdades</h2>
+
               <div className="faculty-list">
                 {demoCourse.Faculdades.map((faculty) => (
                   <div key={`${faculty.Faculdade}-${faculty.Local}`} className="faculty-card">
@@ -181,6 +198,7 @@ function App() {
 
             <article className="card-panel">
               <h2>Carreiras</h2>
+
               <ul className="detail-list">
                 {demoCourse.Carreiras.map((career) => (
                   <li key={career}>{career}</li>
@@ -190,6 +208,7 @@ function App() {
 
             <article className="card-panel">
               <h2>Profissionalizações</h2>
+
               <ul className="detail-list">
                 {demoCourse.Profissionalizacoes.map((item) => (
                   <li key={item}>{item}</li>

@@ -3,6 +3,7 @@ import './App.css'
 import corujaLogo from './assets/logo.png'
 import Quiz from './components/Quiz'
 import Compare from './components/Compare'
+import ExploreCourses from './components/ExploreCourses'
 
 const demoCourse = {
   Curso: 'Bacharelado em Dinâmicas de Relacionamento Interpessoal (Como ficar com alguém)',
@@ -61,6 +62,11 @@ function App() {
     setShowSearch(false)
   }
 
+  const openExplore = () => {
+    setCurrentView('explore')
+    setShowSearch(false)
+  }
+
   return (
     <div className="page">
       <header className="topbar">
@@ -84,8 +90,7 @@ function App() {
             href="#cursos"
             onClick={(event) => {
               event.preventDefault()
-              goHome()
-              setShowSearch(true)
+              openExplore()
             }}
           >
             Explorar cursos
@@ -123,7 +128,7 @@ function App() {
               type="button"
               id="cursos"
               className="button button-secondary"
-              onClick={() => setShowSearch(true)}
+              onClick={openExplore}
             >
               Explorar cursos
             </button>
@@ -136,6 +141,8 @@ function App() {
       )}
 
       {currentView === 'quiz' && <Quiz onBack={goHome} />}
+
+      {currentView === 'explore' && <ExploreCourses />}
 
       {currentView === 'compare' && <Compare />}
 

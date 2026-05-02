@@ -28,7 +28,6 @@ const demoCourse = {
 
 function App() {
   const [query, setQuery] = useState('')
-  const [showSearch, setShowSearch] = useState(false)
   const [currentView, setCurrentView] = useState('home')
 
   const normalizedQuery = useMemo(() => query.trim().toLowerCase(), [query])
@@ -42,40 +41,35 @@ function App() {
   const openCoursePage = () => {
     if (courseMatches || normalizedQuery.length > 0) {
       setCurrentView('course')
-      setShowSearch(false)
     }
   }
 
   const goHome = () => {
     setCurrentView('home')
     setQuery('')
-    setShowSearch(false)
   }
 
   const openQuiz = () => {
     setCurrentView('quiz')
-    setShowSearch(false)
-  }
-
-  const openCompare = () => {
-    setCurrentView('compare')
-    setShowSearch(false)
   }
 
   const openExplore = () => {
     setCurrentView('explore')
-    setShowSearch(false)
+  }
+
+  const openCompare = () => {
+    setCurrentView('compare')
   }
 
   return (
     <div className="page">
       <header className="topbar">
         <button type="button" className="brand" onClick={goHome} aria-label="Voltar para início">
-          <img src={corujaLogo} alt="Logo" className="brand-mark" />
+          <img src={corujaLogo} alt="Logo do Vocacionar" className="brand-mark" />
           <span className="brand-text">Vocacionar</span>
         </button>
 
-        <nav className="nav" aria-label="Navegacao principal">
+        <nav className="nav" aria-label="Navegação principal">
           <a
             href="#teste"
             onClick={(event) => {
@@ -110,33 +104,69 @@ function App() {
 
       {currentView === 'home' && (
         <main className="hero">
+          <p className="hero-kicker">Seu futuro começa com uma escolha mais clara</p>
+
           <h1>
-            Encontre um curso que combina <span>com você.</span>
+            Descubra sua carreira ideal <span>em minutos.</span>
           </h1>
 
           <p className="hero-copy">
-            Descubra cursos e carreiras ideais com testes vocacionais, comparação entre opções e
-            informações claras para ajudar você a decidir com mais confiança.
+            Faça um teste rápido, explore cursos e compare opções para tomar uma decisão com mais
+            confiança sobre seu futuro acadêmico.
           </p>
 
           <div className="hero-actions">
-            <button type="button" id="teste" className="button button-primary" onClick={openQuiz}>
-              Fazer teste vocacional <span aria-hidden="true">→</span>
+            <button type="button" className="button button-primary" onClick={openQuiz}>
+              Descobrir minha carreira <span aria-hidden="true">→</span>
             </button>
 
-            <button
-              type="button"
-              id="cursos"
-              className="button button-secondary"
-              onClick={openExplore}
-            >
+            <button type="button" className="button button-secondary" onClick={openExplore}>
               Explorar cursos
             </button>
           </div>
 
-          <button type="button" id="comparar" className="hero-link" onClick={openCompare}>
+          <div className="hero-search" aria-label="Buscar curso">
+            <input
+              type="text"
+              className="search-input"
+              placeholder="🔍 Buscar curso, área ou carreira..."
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') {
+                  openCoursePage()
+                }
+              }}
+            />
+
+            <button type="button" className="search-submit" onClick={openCoursePage}>
+              Buscar
+            </button>
+          </div>
+
+          <button type="button" className="compare-link" onClick={openCompare}>
             ou comparar dois cursos lado a lado <span aria-hidden="true">→</span>
           </button>
+
+          <section className="steps" aria-label="Como funciona">
+            <article className="step">
+              <span className="step-icon">🧠</span>
+              <h3>Teste</h3>
+              <p>Responda perguntas rápidas para entender seu perfil.</p>
+            </article>
+
+            <article className="step">
+              <span className="step-icon">🔎</span>
+              <h3>Explore</h3>
+              <p>Veja cursos, áreas, duração e salário médio.</p>
+            </article>
+
+            <article className="step">
+              <span className="step-icon">⚖️</span>
+              <h3>Compare</h3>
+              <p>Compare opções lado a lado antes de decidir.</p>
+            </article>
+          </section>
         </main>
       )}
 

@@ -87,40 +87,6 @@ function App() {
 
           <a href="#comparar">Comparar</a>
         </nav>
-
-        <div className="search-shell">
-          {showSearch && (
-            <input
-              autoFocus
-              type="text"
-              className="search-input"
-              placeholder="Digite um curso"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter') {
-                  openCoursePage()
-                }
-              }}
-            />
-          )}
-
-          <button
-            type="button"
-            className="search-button"
-            aria-label="Pesquisar curso"
-            onClick={() => {
-              if (showSearch) {
-                openCoursePage()
-                return
-              }
-
-              setShowSearch(true)
-            }}
-          >
-            <span aria-hidden="true">⌕</span>
-          </button>
-        </div>
       </header>
 
       {currentView === 'home' && (
@@ -149,9 +115,45 @@ function App() {
             </button>
           </div>
 
-          <a id="comparar" className="hero-link" href="#comparar">
-            ou comparar dois cursos lado a lado <span aria-hidden="true">→</span>
-          </a>
+          <div className="compare-block">
+            <button
+              type="button"
+              id="comparar"
+              className="button button-secondary"
+              onClick={() => {}}
+            >
+              ou comparar dois cursos lado a lado <span aria-hidden="true">→</span>
+            </button>
+
+            <div className="compare-bottom">
+              <button
+                type="button"
+                className="search-button-center"
+                aria-label="Pesquisar curso"
+                onClick={() => setShowSearch((s) => !s)}
+              >
+                <span aria-hidden="true">⌕</span>
+              </button>
+
+              {showSearch && (
+                <div className="hero-search">
+                  <input
+                    autoFocus
+                    type="text"
+                    className="search-input"
+                    placeholder="Digite um curso"
+                    value={query}
+                    onChange={(event) => setQuery(event.target.value)}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter') {
+                        openCoursePage()
+                      }
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
         </main>
       )}
 

@@ -164,6 +164,9 @@
   font-size: clamp(2.4rem, 5.4vw, 4.7rem);
   line-height: 1.02;
   letter-spacing: -0.055em;
+  /* make course title (e.g. Medicina) use accent blue */
+  color: #2d72d9;
+  font-weight: 800;
 }
 
 .hero h1 span {
@@ -300,6 +303,12 @@
   font-size: 1.4rem;
 }
 
+/* Make card titles use the same light-blue accent and stand out */
+.card-panel h2 {
+  color: #2d72d9;
+  font-weight: 700;
+}
+
 .faculty-list,
 .detail-list {
   display: grid;
@@ -326,8 +335,18 @@
 }
 
 .detail-list {
-  padding-left: 1.1rem;
+  padding-left: 0;
   color: #5d6f83;
+  list-style: none;
+}
+
+.detail-list li {
+  padding: 1rem;
+  border-radius: 12px;
+  background: #f7fbff;
+  border: 1px solid rgba(43, 116, 255, 0.1);
+  color: #17345f;
+  display: block;
 }
 
 .back-button {

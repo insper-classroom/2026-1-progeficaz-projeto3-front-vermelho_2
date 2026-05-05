@@ -6,24 +6,23 @@ import Compare from './components/Compare'
 import ExploreCourses from './components/ExploreCourses'
 
 const demoCourse = {
-  Curso: 'Bacharelado em Dinâmicas de Relacionamento Interpessoal (Como ficar com alguém)',
+  Curso: 'Medicina',
   Descricao:
-    'Este curso oferece uma abordagem acadêmica e prática sobre as complexidades das interações humanas e a conquista afetiva. Os alunos estudam desde a psicologia do desejo até as nuances da comunicação não verbal, aprendendo a criar conexões genuínas e saudáveis. O currículo abrange a gestão de expectativas, a superação da timidez e o desenvolvimento da autoconfiança, capacitando o estudante a navegar com sucesso no complexo cenário dos relacionamentos modernos, sempre pautado no respeito e no consentimento mútuo.',
+    'Esse curso é ideal para quem tem interesse em cuidar da saúde das pessoas, entender o corpo humano e trabalhar em hospitais, clínicas ou pesquisa médica. Envolve estudos avançados sobre virus, tratamentos e diagnósticos.',
   Faculdades: [
     {
-      Faculdade: 'Academia de Habilidades Sociais',
-      Local: 'Campus Sedução',
-      Disponibilidade: 'Privado',
-      Mensalidade: 'R$ 450,00',
+      Faculdade: 'Universidade de São Paulo (USP)',
+      Local: 'Campus de Pinheiros, Ribeirão Preto e Bauru',
+      Disponibilidade: 'Público',
     },
     {
-      Faculdade: 'Universidade Federal de Psicologia Aplicada',
-      Local: 'Campus Norte',
+      Faculdade: 'Universidade de Campinas (Unicamp)',
+      Local: 'Campus Barão geraldo, Campinas',
       Disponibilidade: 'Público',
     },
   ],
-  Carreiras: ['Consultor de Relacionamentos', 'Coach de Dating', 'Analista de Comportamento Social'],
-  Profissionalizacoes: ['Linguagem Corporal', 'Inteligência Emocional', 'Técnicas de Persuasão Ética'],
+  Carreiras: ['Médico Geral', 'Médico Cirurgião', 'Médico Pesquisador'],
+  Profissionalizacoes: ['Pediatria', 'Infectologista', 'Cardiologia'],
 }
 
 function App() {

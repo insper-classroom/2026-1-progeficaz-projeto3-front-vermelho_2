@@ -12,8 +12,8 @@ export default function Compare() {
       <p>Escolha dois cursos para ver diferenças</p>
 
       <div className="compare-selectors">
-        <CourseSelector title="Curso A" onSelect={setCourseA} />
-        <CourseSelector title="Curso B" onSelect={setCourseB} />
+        <CourseSelector title="Curso A" onSelect={setCourseA} selectedCourse={courseA} />
+        <CourseSelector title="Curso B" onSelect={setCourseB} selectedCourse={courseB} />
       </div>
 
       {!courseA || !courseB ? (

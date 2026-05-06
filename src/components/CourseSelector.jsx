@@ -5,7 +5,7 @@ const coursesMock = [
   { name: "Psicologia", area: "Humanas" },
 ]
 
-export default function CourseSelector({ title, onSelect }) {
+export default function CourseSelector({ title, onSelect, selectedCourse }) {
   return (
     <div className="course-selector">
       <h3>{title}</h3>
@@ -13,7 +13,7 @@ export default function CourseSelector({ title, onSelect }) {
       {coursesMock.map((course) => (
         <button
           key={course.name}
-          className="course-item"
+          className={`course-item ${selectedCourse?.name === course.name ? 'selected' : ''}`}
           onClick={() => onSelect(course)}
         >
           <strong>{course.name}</strong>

@@ -164,7 +164,6 @@
   font-size: clamp(2.4rem, 5.4vw, 4.7rem);
   line-height: 1.02;
   letter-spacing: -0.055em;
-  /* make course title (e.g. Medicina) use accent blue */
   color: #2d72d9;
   font-weight: 800;
 }
@@ -303,7 +302,6 @@
   font-size: 1.4rem;
 }
 
-/* Make card titles use the same light-blue accent and stand out */
 .card-panel h2 {
   color: #2d72d9;
   font-weight: 700;
@@ -395,7 +393,6 @@
   transform: translateX(4px);
 }
 
-/* QUIZ */
 .quiz-page {
   max-width: 850px;
   margin: 0 auto;
@@ -601,6 +598,10 @@
   text-align: center;
 }
 
+.compare-page h1 {
+  color: #2d72d9;
+}
+
 .compare-selectors {
   display: flex;
   gap: 1.5rem;
@@ -621,12 +622,31 @@
   padding: 0.8rem;
   margin-top: 0.5rem;
   border-radius: 12px;
-  border: 1px solid #dbeafe;
-  background: #f8fbff;
+  border: 2px solid rgba(43, 116, 255, 0.12);
+  background: #ffffff;
+  color: #11305d;
   cursor: pointer;
+  text-align: left;
+  font-weight: 700;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.course-item span {
+  color: #5d6f83;
+  font-weight: 600;
 }
 
 .course-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(43, 116, 255, 0.35);
+  background: #f7fbff;
+}
+
+.course-item.selected {
+  border-color: #2d72d9;
   background: #eaf2ff;
 }
 
@@ -650,6 +670,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 1rem;
+}
+
+.compare-header > div:not(:last-child),
+.compare-row > span:not(:last-child) {
+  border-right: 1px solid #e5e7eb;
+  padding-right: 1rem;
+}
+
+.compare-header > div:not(:first-child),
+.compare-row > span:not(:first-child) {
+  padding-left: 1rem;
 }
 
 .compare-header {
